@@ -6,6 +6,7 @@ import javax.jms.Message;
 import javax.jms.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ public class SendMsgController {
     @Autowired
     private JmsTemplate jmsTemplate;
     @Autowired
+    @Qualifier("queueDestination")//在配置文件中定义了两个queueDestination。这里确实能够使用其中的一个
     private Destination destination;
     /**
      * 向指定队列发送消息

@@ -15,8 +15,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * Created by Administrator on 15-11-16.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-// ApplicationContext context = new
-// ClassPathXmlApplicationContext("applicationContext.xml");
 @ContextConfiguration("/spring/spring-*.xml")
 public class SpringJmsTest {
     /**
@@ -60,9 +58,8 @@ public class SpringJmsTest {
     //---------------------------===============以下使用自定义的Destination，不使用配置文件中的===================-------------------------
     @Test
     public void sendMsgTwo(){
-        Destination myDestination = new ActiveMQQueue("queue2");
+       Destination myDestination = new ActiveMQQueue("queue2");
        sendMessage.sendMessage(myDestination,"----send my msg to myDestination");
-       sendMessage.sendMessage(myDestination,"----send my msg to myDestination2");
     }
     @Test
     public  void testGetMsgTwo(){
